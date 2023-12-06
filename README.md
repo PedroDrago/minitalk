@@ -1,5 +1,5 @@
 # minitalk
 
-![print](printscreen.png)
+<img align="center" src="./printscreen.png">
 
 This project is about communication between process in a server/client model using exclusively 2 UNIX signals.
