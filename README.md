@@ -9,14 +9,14 @@
 ---
 
 <h3 align="center">Unix Signals</h3>
-Signals are a tool used by the OS to stop a process, indicating a specific reason based on an event that has happened. For example, when you mess up your while loop and forget to increment the counter and end up with an infinite loop, you probably press CTRL + C to interrupt the execution. When you do that, what is actually happening is that the OS sent a signal called SIGINT (Signal Interrupt) to your process, and it was successfully terminated. Another common signal you encounter frequently but don't even know is a signal called SIGSEGV, or Segfault. It happens when you perform an illegal memory access, so the OS notices your crime and immediately sends a signal to the process to interrupt it. TLDR: Signals are a way to stop a process for a specific reason.
+Signals are a tool used by the OS to stop a process, indicating a specific reason based on an event that has happened. For example, when you mess up your while loop and forget to increment the counter and end up with an infinite loop, you probably press CTRL + C to interrupt the execution, what is actually happening there is that the OS sent a signal called SIGINT (**SIG**nal **INT**errupt) to your process. Another common signal you encounter frequently but don't even know is a signal called SIGSEGV, or Segfault. It happens when you perform an illegal memory access, so the OS notices your infraction and immediately sends a signal to the process to interrupt it. 
 
 To send a signal in C, we can use the `kill()` function, which will take two numbers, the first being the PID of the process and the next being the code for the Signal you want to send. PID stands for Process ID. It is an identification number bound to a process during its lifespan; it is the way we can identify a process in the system because two processes that are in execution at the same time can't share a PID, it will always be unique.
 
 Example:
 ```c 
 pid_t destiny_pid = 38919;
-kill(destiny_pio, SIGINT);
+kill(destiny_pid, SIGINT);
 ```
 In the above example, we determined the destiny process PID and sent it a SIGINT with the function `kill()`. The process with this PID will be terminated with the message of a SIGINT.
 
